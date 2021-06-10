@@ -1,6 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource path="res://Bank.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Test.gd" type="Script" id=2]
+
+[node name="Test" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1029.0
@@ -9,3 +13,48 @@ color = Color( 0.0470588, 0.156863, 0.239216, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Bank" parent="." instance=ExtResource( 1 )]
+position = Vector2( 20.1815, 24.386 )
+
+[node name="SizeSelector" type="ItemList" parent="."]
+margin_left = 64.3019
+margin_top = 176.0
+margin_right = 179.302
+margin_bottom = 257.0
+items = [ "Large (3 pips)", null, false, "Medium (2 pips)", null, false, "Small (1 pip)", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorSelector" type="ItemList" parent="."]
+margin_left = 199.407
+margin_top = 176.0
+margin_right = 269.407
+margin_bottom = 257.0
+items = [ "Green", null, false, "Yellow", null, false, "Red", null, false, "Blue", null, false ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TakeButton" type="Button" parent="."]
+margin_left = 292.0
+margin_top = 177.0
+margin_right = 365.0
+margin_bottom = 197.0
+text = "Take"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PutBackButton" type="Button" parent="."]
+margin_left = 292.0
+margin_top = 231.688
+margin_right = 365.0
+margin_bottom = 251.688
+text = "Put Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="TakeButton" to="." method="_on_TakeButton_button_up"]
+[connection signal="button_up" from="PutBackButton" to="." method="_on_PutBackButton_button_up"]

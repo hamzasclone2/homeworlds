@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Bank.gd" type="Script" id=1]
+
+[node name="Bank" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "Bank:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenLabel" type="Label" parent="."]
+margin_top = 16.0
+margin_right = 40.0
+margin_bottom = 30.0
+text = "Greens:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YellowLabel" type="Label" parent="."]
+margin_top = 32.0
+margin_right = 50.0
+margin_bottom = 46.0
+text = "Yellows:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RedLabel" type="Label" parent="."]
+margin_top = 48.0
+margin_right = 50.0
+margin_bottom = 62.0
+text = "Reds:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BlueLabel" type="Label" parent="."]
+margin_top = 63.5
+margin_right = 50.0
+margin_bottom = 77.5
+text = "Blues:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
