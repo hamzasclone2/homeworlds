@@ -1,7 +1,7 @@
 extends Node2D
 
 var color
-var siZe
+var size
 var ownedBy
 
 func build():

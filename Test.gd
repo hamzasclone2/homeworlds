@@ -3,8 +3,9 @@ extends Node2D
 onready var bank = get_node("Bank")
 onready var sizeSelector = get_node("SizeSelector")
 onready var colorSelector = get_node("ColorSelector")
-onready var starSystemList = get_node("StarSystemList")
 var starSystemArray = []
+var starSystemYPos = 450
+var starSystemXPos = 50
 
 func _ready():
 	bank.initialize()
@@ -23,9 +24,10 @@ func _on_AddStarSystem_button_up():
 	
 	var starSystem = load("StarSystem.tscn").instance()
 	add_child(starSystem)
+	starSystem.position = Vector2(starSystemXPos, starSystemYPos)
 	starSystem.size = sizeHelper()
 	starSystemArray.append(starSystem)
-	print(starSystemArray.back())
+	starSystemXPos += 100
 
 
 func sizeHelper():
