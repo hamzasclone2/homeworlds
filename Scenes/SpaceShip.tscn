@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/SpaceShip.gd" type="Script" id=1]
+[ext_resource path="res://Images/greenStarShip.png" type="Texture" id=2]
+[ext_resource path="res://Images/yellowStarShip.png" type="Texture" id=3]
+[ext_resource path="res://Images/blueStarship.png" type="Texture" id=4]
+[ext_resource path="res://Images/redStarship.png" type="Texture" id=5]
+
+[node name="SpaceShip" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="GreenSprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="YellowSprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 3 )
+
+[node name="RedSprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 5 )
+
+[node name="BlueSprite" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )

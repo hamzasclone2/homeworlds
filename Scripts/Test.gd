@@ -7,6 +7,8 @@ var starSystemArray = []
 var starSystemYPos = 450
 var starSystemXPos = 50
 
+var colorSelected
+
 func _ready():
 	bank.initialize()
 
@@ -22,10 +24,11 @@ func _on_PutBackButton_button_up():
 func _on_AddStarSystem_button_up():
 	takeHelper()
 	
-	var starSystem = load("StarSystem.tscn").instance()
+	var starSystem = load("Scenes/StarSystem.tscn").instance()
 	add_child(starSystem)
+	starSystem.setup(colorSelected, sizeHelper())
+	
 	starSystem.position = Vector2(starSystemXPos, starSystemYPos)
-	starSystem.size = sizeHelper()
 	starSystemArray.append(starSystem)
 	starSystemXPos += 100
 
@@ -43,12 +46,16 @@ func takeHelper():
 	var size = sizeHelper()
 	if(Array(colorSelector.get_selected_items()) == [0]):
 		bank.takeGreen(size)
+		colorSelected = 'Green'
 	elif(Array(colorSelector.get_selected_items()) == [1]):
 		bank.takeYellow(size)
+		colorSelected = 'Yellow'
 	if(Array(colorSelector.get_selected_items()) == [2]):
 		bank.takeRed(size)
+		colorSelected = 'Red'
 	if(Array(colorSelector.get_selected_items()) == [3]):
 		bank.takeBlue(size)
+		colorSelected = 'Blue'
 
 
 func putBackHelper():
@@ -64,4 +71,5 @@ func putBackHelper():
 
 
 func _on_AddShipToStar_button_up():
-	starSystemArray[0].addSpaceShip()
+	takeHelper()
+	starSystemArray[0].addSpaceShip(colorSelected, sizeHelper())
