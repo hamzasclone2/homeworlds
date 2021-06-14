@@ -9,6 +9,7 @@ script = ExtResource( 2 )
 [node name="BackGround" type="ColorRect" parent="."]
 margin_right = 1029.0
 margin_bottom = 607.0
+mouse_filter = 2
 color = Color( 0.0470588, 0.156863, 0.239216, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -17,7 +18,15 @@ __meta__ = {
 [node name="Bank" parent="." instance=ExtResource( 1 )]
 position = Vector2( 20.1815, 24.386 )
 
-[node name="SizeSelector" type="ItemList" parent="."]
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SizeSelector" type="ItemList" parent="Control"]
 margin_left = 64.3019
 margin_top = 176.0
 margin_right = 179.302
@@ -27,7 +36,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColorSelector" type="ItemList" parent="."]
+[node name="ColorSelector" type="ItemList" parent="Control"]
 margin_left = 199.407
 margin_top = 176.0
 margin_right = 269.407
@@ -37,7 +46,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="TakeButton" type="Button" parent="."]
+[node name="TakeButton" type="Button" parent="Control"]
 margin_left = 292.0
 margin_top = 177.0
 margin_right = 365.0
@@ -47,36 +56,36 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="PutBackButton" type="Button" parent="."]
+[node name="PutBackButton" type="Button" parent="Control"]
 margin_left = 292.0
 margin_top = 231.688
-margin_right = 365.0
+margin_right = 390.0
 margin_bottom = 251.688
 text = "Put Back Ship"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AddStarSystem" type="Button" parent="."]
+[node name="AddStarSystem" type="Button" parent="Control"]
 margin_left = 409.699
 margin_top = 202.043
-margin_right = 421.699
+margin_right = 517.699
 margin_bottom = 222.043
 text = "AddStarSystem"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AddShipToStar" type="Button" parent="."]
+[node name="AddShipToStar" type="Button" parent="Control"]
 margin_left = 546.639
 margin_top = 199.798
-margin_right = 558.639
+margin_right = 712.639
 margin_bottom = 219.798
 text = "Add Ship To Star System"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="button_up" from="TakeButton" to="." method="_on_TakeButton_button_up"]
-[connection signal="button_up" from="PutBackButton" to="." method="_on_PutBackButton_button_up"]
-[connection signal="button_up" from="AddStarSystem" to="." method="_on_AddStarSystem_button_up"]
-[connection signal="button_up" from="AddShipToStar" to="." method="_on_AddShipToStar_button_up"]
+[connection signal="button_up" from="Control/TakeButton" to="." method="_on_TakeButton_button_up"]
+[connection signal="button_up" from="Control/PutBackButton" to="." method="_on_PutBackButton_button_up"]
+[connection signal="button_up" from="Control/AddStarSystem" to="." method="_on_AddStarSystem_button_up"]
+[connection signal="button_up" from="Control/AddShipToStar" to="." method="_on_AddShipToStar_button_up"]

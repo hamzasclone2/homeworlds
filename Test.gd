@@ -1,8 +1,8 @@
 extends Node2D
 
 onready var bank = get_node("Bank")
-onready var sizeSelector = get_node("SizeSelector")
-onready var colorSelector = get_node("ColorSelector")
+onready var sizeSelector = get_node("Control/SizeSelector")
+onready var colorSelector = get_node("Control/ColorSelector")
 var starSystemArray = []
 var starSystemYPos = 450
 var starSystemXPos = 50
