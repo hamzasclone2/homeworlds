@@ -2,13 +2,15 @@ extends Node2D
 
 var color
 var size
-var spaceShipXPos = 50
 var isHovering = false
 var isSelected = false
 onready var GreenSprite = get_node("GreenSprite")
 onready var YellowSprite = get_node("YellowSprite")
 onready var RedSprite = get_node("RedSprite")
 onready var BlueSprite = get_node("BlueSprite")
+
+var numSpaceShips = 0
+var spaceShipX = 55
 
 func setup(inputColor, inputSize):
 	color = inputColor
@@ -41,13 +43,16 @@ func _input(event):
 		print(isSelected)
 
 func addSpaceShip(inputColor, inputSize):
+	numSpaceShips += 1
 	var spaceShip = load("Scenes/SpaceShip.tscn").instance()
 	add_child(spaceShip)
 	spaceShip.setup(inputColor, inputSize)
 	
-	spaceShip.position = Vector2(spaceShipXPos, 0)
-	spaceShipXPos += 50
-
+	if(numSpaceShips % 2 == 1):
+		spaceShip.position = Vector2(spaceShipX, -20)
+	elif(numSpaceShips % 2 == 0):
+		spaceShip.position = Vector2(spaceShipX, 20)
+		spaceShipX += 35 
 func _on_Area2D_mouse_entered():
 	isHovering = true
 
