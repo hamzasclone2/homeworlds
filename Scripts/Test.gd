@@ -3,6 +3,7 @@ extends Node2D
 onready var bank = get_node("Bank")
 onready var sizeSelector = get_node("Control/SizeSelector")
 onready var colorSelector = get_node("Control/ColorSelector")
+onready var playerLabel = get_node("Control/PlayerLabel")
 var starSystemArray = []
 var starSystemYPos = 450
 var starSystemXPos = 50
@@ -10,9 +11,12 @@ var starSystemID = 0
 var selectedStarSystem = 0
 
 var colorSelected
+var playerTurn = 1
+
 
 func _ready():
 	bank.initialize()
+	playerLabel.text = "Player 1's Turn"
 
 
 func _on_TakeButton_button_up():
@@ -74,4 +78,13 @@ func putBackHelper():
 
 func _on_AddShipToStar_button_up():
 	takeHelper()
-	starSystemArray[selectedStarSystem].addSpaceShip(colorSelected, sizeHelper())
+	starSystemArray[selectedStarSystem].addSpaceShip(colorSelected, sizeHelper(), playerTurn)
+
+
+func _on_NextTurnButton_button_up():
+	if(playerTurn == 1):
+		playerTurn = 2
+		playerLabel.text = "Player 2's Turn"
+	elif(playerTurn == 2):
+		playerTurn = 1
+		playerLabel.text = "Player 1's Turn"

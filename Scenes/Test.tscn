@@ -85,7 +85,27 @@ text = "Add Ship To Star System"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="NextTurnButton" type="Button" parent="Control"]
+margin_left = 913.67
+margin_top = 17.9336
+margin_right = 987.67
+margin_bottom = 37.9336
+text = "Next Turn"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayerLabel" type="Label" parent="Control"]
+margin_left = 773.977
+margin_top = 22.653
+margin_right = 813.977
+margin_bottom = 36.653
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="button_up" from="Control/TakeButton" to="." method="_on_TakeButton_button_up"]
 [connection signal="button_up" from="Control/PutBackButton" to="." method="_on_PutBackButton_button_up"]
 [connection signal="button_up" from="Control/AddStarSystem" to="." method="_on_AddStarSystem_button_up"]
 [connection signal="button_up" from="Control/AddShipToStar" to="." method="_on_AddShipToStar_button_up"]
+[connection signal="button_up" from="Control/NextTurnButton" to="." method="_on_NextTurnButton_button_up"]
