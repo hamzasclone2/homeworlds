@@ -6,6 +6,8 @@ onready var colorSelector = get_node("Control/ColorSelector")
 var starSystemArray = []
 var starSystemYPos = 450
 var starSystemXPos = 50
+var starSystemID = 0
+var selectedStarSystem = 0
 
 var colorSelected
 
@@ -26,11 +28,11 @@ func _on_AddStarSystem_button_up():
 	
 	var starSystem = load("Scenes/StarSystem.tscn").instance()
 	add_child(starSystem)
-	starSystem.setup(colorSelected, sizeHelper())
-	
+	starSystem.setup(colorSelected, sizeHelper(), starSystemID)
+	starSystemID += 1
 	starSystem.position = Vector2(starSystemXPos, starSystemYPos)
 	starSystemArray.append(starSystem)
-	starSystemXPos += 100
+	starSystemXPos += 300
 
 
 func sizeHelper():
@@ -72,4 +74,4 @@ func putBackHelper():
 
 func _on_AddShipToStar_button_up():
 	takeHelper()
-	starSystemArray[0].addSpaceShip(colorSelected, sizeHelper())
+	starSystemArray[selectedStarSystem].addSpaceShip(colorSelected, sizeHelper())

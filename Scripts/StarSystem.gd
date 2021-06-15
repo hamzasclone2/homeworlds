@@ -3,7 +3,7 @@ extends Node2D
 var color
 var size
 var isHovering = false
-var isSelected = false
+var ID
 onready var GreenSprite = get_node("GreenSprite")
 onready var YellowSprite = get_node("YellowSprite")
 onready var RedSprite = get_node("RedSprite")
@@ -12,9 +12,10 @@ onready var BlueSprite = get_node("BlueSprite")
 var numSpaceShips = 0
 var spaceShipX = 55
 
-func setup(inputColor, inputSize):
+func setup(inputColor, inputSize, starSystemID):
 	color = inputColor
 	size = inputSize
+	ID = starSystemID
 	if(color == 'Green'):
 		GreenSprite.visible = true
 		YellowSprite.visible = false
@@ -39,8 +40,7 @@ func setup(inputColor, inputSize):
 
 func _input(event):
 	if event.is_action_pressed("MouseClick") and isHovering:
-		isSelected = !isSelected
-		print(isSelected)
+		get_parent().selectedStarSystem = ID
 
 func addSpaceShip(inputColor, inputSize):
 	numSpaceShips += 1
