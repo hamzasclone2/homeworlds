@@ -88,3 +88,8 @@ func _on_NextTurnButton_button_up():
 	elif(playerTurn == 2):
 		playerTurn = 1
 		playerLabel.text = "Player 1's Turn"
+
+
+func _on_BuildButton_button_up():
+	starSystemArray[selectedStarSystem].build(playerTurn)
+	

@@ -29,14 +29,26 @@ func _process(delta):
 func takeGreen(size):
 	available_greens.erase(size)
 	
+func takeSmallestGreen():
+	available_greens.pop_front()
+	
 func takeYellow(size):
 	available_yellows.erase(size)
+	
+func takeSmallestYellow():
+	available_yellows.pop_front()
 	
 func takeRed(size):
 	available_reds.erase(size)
 	
+func takeSmallestRed():
+	available_reds.pop_front()
+	
 func takeBlue(size):
 	available_blues.erase(size)
+	
+func takeSmallestBlue():
+	available_blues.pop_front()
 	
 func putBackGreen(size):
 	available_greens.append(size)

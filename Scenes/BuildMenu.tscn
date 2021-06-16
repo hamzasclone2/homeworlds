@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/BuildMenu.gd" type="Script" id=1]
+
+[node name="BuildMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -30.0
+margin_top = -78.0
+margin_right = 30.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenButton" type="Button" parent="Buttons"]
+visible = false
+margin_right = 60.0
+margin_bottom = 36.0
+size_flags_vertical = 3
+text = "Green"
+
+[node name="YellowButton" type="Button" parent="Buttons"]
+visible = false
+margin_right = 60.0
+margin_bottom = 49.0
+size_flags_vertical = 3
+text = "Yellow"
+
+[node name="RedButton" type="Button" parent="Buttons"]
+visible = false
+margin_right = 60.0
+margin_bottom = 76.0
+size_flags_vertical = 3
+text = "Red"
+
+[node name="BlueButton" type="Button" parent="Buttons"]
+visible = false
+margin_right = 60.0
+margin_bottom = 156.0
+size_flags_vertical = 3
+text = "Blue"
+[connection signal="button_up" from="Buttons/GreenButton" to="." method="_on_GreenButton_button_up"]
+[connection signal="button_up" from="Buttons/YellowButton" to="." method="_on_YellowButton_button_up"]
+[connection signal="button_up" from="Buttons/RedButton" to="." method="_on_RedButton_button_up"]
+[connection signal="button_up" from="Buttons/BlueButton" to="." method="_on_BlueButton_button_up"]
