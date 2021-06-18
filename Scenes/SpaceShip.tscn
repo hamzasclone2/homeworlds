@@ -24,3 +24,15 @@ texture = ExtResource( 5 )
 [node name="BlueSprite" type="Sprite" parent="."]
 visible = false
 texture = ExtResource( 4 )
+
+[node name="SizeLabel" type="Label" parent="."]
+margin_left = -49.4079
+margin_top = 0.198426
+margin_right = -9.40787
+margin_bottom = 14.1984
+rect_scale = Vector2( 2.5, 2.5 )
+text = "I"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

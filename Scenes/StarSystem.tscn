@@ -27,6 +27,22 @@ texture = ExtResource( 2 )
 visible = false
 texture = ExtResource( 3 )
 
+[node name="SizeLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -39.3352
+margin_top = -11.7676
+margin_right = 0.66478
+margin_bottom = 2.23242
+rect_scale = Vector2( 2, 2 )
+text = "I"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2( 0.300613, 0.280991 )
 

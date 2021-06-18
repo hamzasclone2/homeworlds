@@ -7,6 +7,7 @@ onready var GreenSprite = get_node("GreenSprite")
 onready var YellowSprite = get_node("YellowSprite")
 onready var RedSprite = get_node("RedSprite")
 onready var BlueSprite = get_node("BlueSprite")
+onready var SizeLabel = get_node("SizeLabel")
 
 func setup(inputColor, inputSize):
 	color = inputColor
@@ -31,6 +32,14 @@ func setup(inputColor, inputSize):
 		YellowSprite.visible = false
 		RedSprite.visible = false
 		BlueSprite.visible = true
+		
+	SizeLabel.modulate =  Color(0, 0, 0)
+	if(size == 1):
+		SizeLabel.text = "I"
+	elif(size == 2):
+		SizeLabel.text = "II"
+	elif(size == 3):
+		SizeLabel.text = "III"
 
 func build():
 	pass
