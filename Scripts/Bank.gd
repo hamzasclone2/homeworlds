@@ -5,27 +5,56 @@ onready var available_yellows = []
 onready var available_reds = []
 onready var available_blues = []
 
-onready var gLabel: Label = get_node("GreenLabel")
-onready var yLabel: Label = get_node("YellowLabel")
-onready var rLabel: Label = get_node("RedLabel")
-onready var bLabel: Label = get_node("BlueLabel")
-
 func _ready():
 	available_greens = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
 	available_yellows = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
 	available_reds = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
 	available_blues = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
-	
+	drawBank()
+
 func _process(delta):
 	available_greens.sort()
 	available_yellows.sort()
 	available_reds.sort()
 	available_blues.sort()
-	gLabel.text = "Greens: " + String(available_greens)
-	yLabel.text = "Yellows: " + String(available_yellows)
-	rLabel.text = "Reds: " + String(available_reds)
-	bLabel.text = "Blues: " + String(available_blues)
+	drawBank()
 	
+func drawBank():
+	var square
+	var pos = 10
+	var yPos = 0
+	for i in available_greens:
+		square = load("Scenes/BankSquare.tscn").instance()
+		add_child(square)
+		square.init('Green', i)
+		square.position = Vector2(pos, yPos)
+		pos += 35
+	pos = 10
+	yPos += 35
+	for i in available_yellows:
+		square = load("Scenes/BankSquare.tscn").instance()
+		add_child(square)
+		square.init('Yellow', i)
+		square.position = Vector2(pos, yPos)
+		pos += 35
+	pos = 10
+	yPos += 35
+	for i in available_reds:
+		square = load("Scenes/BankSquare.tscn").instance()
+		add_child(square)
+		square.init('Red', i)
+		square.position = Vector2(pos, yPos)
+		pos += 35
+	pos = 10
+	yPos += 35
+	for i in available_blues:
+		square = load("Scenes/BankSquare.tscn").instance()
+		add_child(square)
+		square.init('Blue', i)
+		square.position = Vector2(pos, yPos)
+		pos += 35
+	
+
 func takeGreen(size):
 	available_greens.erase(size)
 	
