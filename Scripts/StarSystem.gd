@@ -54,7 +54,7 @@ func setup(inputColor, inputSize, starSystemID):
 
 func _input(event):
 	if event.is_action_pressed("MouseClick") and isHovering:
-		get_parent().selectedStarSystem = ID
+		Game.selectedStarSystem = ID
 
 func addSpaceShip(inputColor, inputSize):
 	var spaceShip = load("Scenes/SpaceShip.tscn").instance()
@@ -80,20 +80,17 @@ func addSpaceShip(inputColor, inputSize):
 			spaceShipXP2 -= 35
 
 func build():
+	var ships
 	if Game.playerTurn == 1:
-		if(color == 'Green' or 'Green' in shipsP1):
-			var buildMenu = load("Scenes/BuildMenu.tscn").instance()
-			add_child(buildMenu)
-			buildMenu.availableColors(shipsP1, Game.playerTurn)
+		ships = shipsP1
 	elif Game.playerTurn == 2:
-		if(color == 'Green' or 'Green' in shipsP2):
-			var buildMenu = load("Scenes/BuildMenu.tscn").instance()
-			add_child(buildMenu)
-			buildMenu.availableColors(shipsP2, Game.playerTurn)
+		ships = shipsP2
+	
+	if(color == 'Green' or 'Green' in ships):
+		var buildMenu = load("Scenes/BuildMenu.tscn").instance()
+		add_child(buildMenu)
+		buildMenu.availableColors(ships)
 			
-
-func colonistBuild(inputColor):
-	addSpaceShip(inputColor, 0) #update this!!
 
 func _on_Area2D_mouse_entered():
 	isHovering = true

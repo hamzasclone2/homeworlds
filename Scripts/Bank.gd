@@ -15,8 +15,6 @@ func _ready():
 	available_yellows = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
 	available_reds = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
 	available_blues = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
-	print("hello")
-	print(available_blues)
 	
 func _process(delta):
 	available_greens.sort()
@@ -32,25 +30,25 @@ func takeGreen(size):
 	available_greens.erase(size)
 	
 func takeSmallestGreen():
-	available_greens.pop_front()
+	return available_greens.pop_front()
 	
 func takeYellow(size):
 	available_yellows.erase(size)
 	
 func takeSmallestYellow():
-	available_yellows.pop_front()
+	return available_yellows.pop_front()
 	
 func takeRed(size):
 	available_reds.erase(size)
 	
 func takeSmallestRed():
-	available_reds.pop_front()
+	return available_reds.pop_front()
 	
 func takeBlue(size):
 	available_blues.erase(size)
 	
 func takeSmallestBlue():
-	available_blues.pop_front()
+	return available_blues.pop_front()
 	
 func putBackGreen(size):
 	available_greens.append(size)

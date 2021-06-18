@@ -8,7 +8,7 @@ onready var bButton = get_node("Buttons/BlueButton")
 
 var shipsPresent = []
 
-func availableColors(ships, playerTurn):
+func availableColors(ships):
 	if("Green" in ships):
 		gButton.visible = true
 	if("Yellow" in ships):
@@ -19,24 +19,20 @@ func availableColors(ships, playerTurn):
 		bButton.visible = true
 
 func _on_GreenButton_button_up():
-	Bank.takeSmallestGreen()
-	get_parent().colonistBuild('Green')
+	get_parent().addSpaceShip('Green', Bank.takeSmallestGreen())
 	queue_free()
 
 
 func _on_YellowButton_button_up():
-	Bank.takeSmallestYellow()
-	get_parent().colonistBuild('Yellow')
+	get_parent().addSpaceShip('Yellow', Bank.takeSmallestYellow())
 	queue_free()
 
 
 func _on_RedButton_button_up():
-	Bank.takeSmallestRed()
-	get_parent().colonistBuild('Red')
+	get_parent().addSpaceShip('Red', Bank.takeSmallestRed())
 	queue_free()
 
 
 func _on_BlueButton_button_up():
-	Bank.takeSmallestBlue()
-	get_parent().colonistBuild('Blue')
+	get_parent().addSpaceShip('Blue', Bank.takeSmallestBlue())
 	queue_free()

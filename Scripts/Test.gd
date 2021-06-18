@@ -7,7 +7,6 @@ onready var playerLabel = get_node("Control/PlayerLabel")
 var starSystemYPos = 450
 var starSystemXPos = 50
 
-
 var colorSelected
 
 
