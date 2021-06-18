@@ -28,6 +28,7 @@ visible = false
 texture = ExtResource( 3 )
 
 [node name="SizeLabel" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

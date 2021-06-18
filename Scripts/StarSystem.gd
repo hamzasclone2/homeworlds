@@ -46,7 +46,6 @@ func setup(inputColor, inputSize, starSystemID):
 		RedSprite.visible = false
 		BlueSprite.visible = true
 		
-	SizeLabel.modulate =  Color(0, 0, 0)
 	if(size == 1):
 		SizeLabel.text = "I"
 	elif(size == 2):
@@ -96,8 +95,8 @@ func build(playerTurn):
 			buildMenu.availableColors(shipsP2, pTurn)
 			
 
-func colonistBuild(color):
-	addSpaceShip(color, 0, pTurn)
+func colonistBuild(inputColor):
+	addSpaceShip(inputColor, 0, pTurn)
 
 func _on_Area2D_mouse_entered():
 	isHovering = true

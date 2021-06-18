@@ -33,7 +33,6 @@ func setup(inputColor, inputSize):
 		RedSprite.visible = false
 		BlueSprite.visible = true
 		
-	SizeLabel.modulate =  Color(0, 0, 0)
 	if(size == 1):
 		SizeLabel.text = "I"
 	elif(size == 2):
