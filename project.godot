@@ -19,6 +19,10 @@ config/name="homeworld"
 run/main_scene="res://Scenes/MainMenu.tscn"
 config/icon="res://Images/icon.png"
 
+[autoload]
+
+Game="*res://Scripts/Game.gd"
+
 [input]
 
 MouseClick={

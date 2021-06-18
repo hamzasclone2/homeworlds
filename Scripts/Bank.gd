@@ -10,11 +10,13 @@ onready var yLabel: Label = get_node("YellowLabel")
 onready var rLabel: Label = get_node("RedLabel")
 onready var bLabel: Label = get_node("BlueLabel")
 
-func initialize():
+func _ready():
 	available_greens = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
 	available_yellows = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
 	available_reds = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
 	available_blues = [1, 1, 1, 2, 2, 2, 3, 3, 3,]
+	print("hello")
+	print(available_blues)
 	
 func _process(delta):
 	available_greens.sort()

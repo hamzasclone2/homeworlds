@@ -19,8 +19,6 @@ var spaceShipXP2 = -55
 var shipsP1 = []
 var shipsP2 = []
 
-var pTurn
-
 func setup(inputColor, inputSize, starSystemID):
 	color = inputColor
 	size = inputSize
@@ -58,12 +56,12 @@ func _input(event):
 	if event.is_action_pressed("MouseClick") and isHovering:
 		get_parent().selectedStarSystem = ID
 
-func addSpaceShip(inputColor, inputSize, playerTurn):
+func addSpaceShip(inputColor, inputSize):
 	var spaceShip = load("Scenes/SpaceShip.tscn").instance()
 	add_child(spaceShip)
 	spaceShip.setup(inputColor, inputSize)
 	
-	if(playerTurn == 1):
+	if(Game.playerTurn == 1):
 		numSpaceShipsP1 += 1
 		shipsP1.append(inputColor)
 		if(numSpaceShipsP1 % 2 == 1):
@@ -71,7 +69,7 @@ func addSpaceShip(inputColor, inputSize, playerTurn):
 		elif(numSpaceShipsP1 % 2 == 0):
 			spaceShip.position = Vector2(spaceShipXP1, 20)
 			spaceShipXP1 += 35
-	elif(playerTurn == 2):
+	elif(Game.playerTurn == 2):
 		numSpaceShipsP2 += 1
 		shipsP2.append(inputColor)
 		spaceShip.rotation_degrees = 180
@@ -81,22 +79,21 @@ func addSpaceShip(inputColor, inputSize, playerTurn):
 			spaceShip.position = Vector2(spaceShipXP2, 20)
 			spaceShipXP2 -= 35
 
-func build(playerTurn):
-	pTurn = playerTurn
-	if pTurn == 1:
+func build():
+	if Game.playerTurn == 1:
 		if(color == 'Green' or 'Green' in shipsP1):
 			var buildMenu = load("Scenes/BuildMenu.tscn").instance()
 			add_child(buildMenu)
-			buildMenu.availableColors(shipsP1, pTurn)
-	elif pTurn == 2:
+			buildMenu.availableColors(shipsP1, Game.playerTurn)
+	elif Game.playerTurn == 2:
 		if(color == 'Green' or 'Green' in shipsP2):
 			var buildMenu = load("Scenes/BuildMenu.tscn").instance()
 			add_child(buildMenu)
-			buildMenu.availableColors(shipsP2, pTurn)
+			buildMenu.availableColors(shipsP2, Game.playerTurn)
 			
 
 func colonistBuild(inputColor):
-	addSpaceShip(inputColor, 0, pTurn)
+	addSpaceShip(inputColor, 0) #update this!!
 
 func _on_Area2D_mouse_entered():
 	isHovering = true
