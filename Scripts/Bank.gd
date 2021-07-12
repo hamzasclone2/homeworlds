@@ -59,24 +59,32 @@ func takeGreen(size):
 	available_greens.erase(size)
 	
 func takeSmallestGreen():
+	if available_greens.size() == 0:
+		return false
 	return available_greens.pop_front()
 	
 func takeYellow(size):
 	available_yellows.erase(size)
 	
 func takeSmallestYellow():
+	if available_yellows.size() == 0:
+		return false
 	return available_yellows.pop_front()
 	
 func takeRed(size):
 	available_reds.erase(size)
 	
 func takeSmallestRed():
+	if available_reds.size() == 0:
+		return false
 	return available_reds.pop_front()
 	
 func takeBlue(size):
 	available_blues.erase(size)
 	
 func takeSmallestBlue():
+	if available_blues.size() == 0:
+		return false
 	return available_blues.pop_front()
 	
 func putBackGreen(size):

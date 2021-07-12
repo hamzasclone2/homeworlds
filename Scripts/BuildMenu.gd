@@ -19,20 +19,36 @@ func availableColors(ships):
 		bButton.visible = true
 
 func _on_GreenButton_button_up():
-	get_parent().addSpaceShip('Green', Bank.takeSmallestGreen())
+	var ship = Bank.takeSmallestGreen()
+	if not ship:
+		queue_free()
+		return
+	get_parent().addSpaceShip('Green', ship)
 	queue_free()
 
 
 func _on_YellowButton_button_up():
-	get_parent().addSpaceShip('Yellow', Bank.takeSmallestYellow())
+	var ship = Bank.takeSmallestYellow()
+	if not ship:
+		queue_free()
+		return
+	get_parent().addSpaceShip('Yellow', ship)
 	queue_free()
 
 
 func _on_RedButton_button_up():
-	get_parent().addSpaceShip('Red', Bank.takeSmallestRed())
+	var ship = Bank.takeSmallestRed()
+	if not ship:
+		queue_free()
+		return
+	get_parent().addSpaceShip('Red', ship)
 	queue_free()
 
 
 func _on_BlueButton_button_up():
-	get_parent().addSpaceShip('Blue', Bank.takeSmallestBlue())
+	var ship = Bank.takeSmallestBlue()
+	if not ship:
+		queue_free()
+		return
+	get_parent().addSpaceShip('Blue', ship)
 	queue_free()

@@ -14,16 +14,9 @@ func _ready():
 	playerLabel.text = "Player 1's Turn"
 
 
-func _on_TakeButton_button_up():
-	takeHelper()
-
-
-func _on_PutBackButton_button_up():
-	putBackHelper()
-
-
 func _on_AddStarSystem_button_up():
-	takeHelper()
+	if not takeHelper():
+		return
 	
 	var starSystem = load("Scenes/StarSystem.tscn").instance()
 	add_child(starSystem)
@@ -45,18 +38,25 @@ func sizeHelper():
 
 func takeHelper():
 	var size = sizeHelper()
-	if(Array(colorSelector.get_selected_items()) == [0]):
+	if(Array(colorSelector.get_selected_items()) == [0] and size in bank.available_greens):
 		bank.takeGreen(size)
 		colorSelected = 'Green'
-	elif(Array(colorSelector.get_selected_items()) == [1]):
+		return true
+	elif(Array(colorSelector.get_selected_items()) == [1] and size in bank.available_yellows):
 		bank.takeYellow(size)
 		colorSelected = 'Yellow'
-	if(Array(colorSelector.get_selected_items()) == [2]):
+		return true
+	elif(Array(colorSelector.get_selected_items()) == [2] and size in bank.available_reds):
 		bank.takeRed(size)
 		colorSelected = 'Red'
-	if(Array(colorSelector.get_selected_items()) == [3]):
+		return true
+	elif(Array(colorSelector.get_selected_items()) == [3] and size in bank.available_blues):
 		bank.takeBlue(size)
 		colorSelected = 'Blue'
+		return true
+	else:
+		return false
+		
 
 
 func putBackHelper():
@@ -72,7 +72,8 @@ func putBackHelper():
 
 
 func _on_AddShipToStar_button_up():
-	takeHelper()
+	if not takeHelper():
+		return
 	Game.starSystemArray[Game.selectedStarSystem].addSpaceShip(colorSelected, sizeHelper())
 
 

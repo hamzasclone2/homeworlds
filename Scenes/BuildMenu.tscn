@@ -2,7 +2,6 @@
 
 [ext_resource path="res://Scripts/BuildMenu.gd" type="Script" id=1]
 
-
 [node name="BuildMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -51,6 +50,7 @@ margin_right = 60.0
 margin_bottom = 156.0
 size_flags_vertical = 3
 text = "Blue"
+
 [connection signal="button_up" from="Buttons/GreenButton" to="." method="_on_GreenButton_button_up"]
 [connection signal="button_up" from="Buttons/YellowButton" to="." method="_on_YellowButton_button_up"]
 [connection signal="button_up" from="Buttons/RedButton" to="." method="_on_RedButton_button_up"]
