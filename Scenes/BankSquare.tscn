@@ -4,7 +4,8 @@
 [ext_resource path="res://Images/greenBankSquare.png" type="Texture" id=2]
 [ext_resource path="res://Images/blueBankSquare.png" type="Texture" id=3]
 [ext_resource path="res://Images/yellowBankSquare.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/BankSquare.gd" type="Script" id=5]
+[ext_resource path="res://Scripts/BankSquare.gd" type="Script" id=5]
+
 
 [node name="BankSquare" type="Node2D"]
 script = ExtResource( 5 )

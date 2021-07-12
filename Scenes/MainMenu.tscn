@@ -43,5 +43,6 @@ margin_right = 252.0
 margin_bottom = 348.0
 size_flags_vertical = 3
 text = "Quit"
+
 [connection signal="button_up" from="VBoxContainer/PlayButton" to="." method="_on_PlayButton_button_up"]
 [connection signal="button_up" from="VBoxContainer/QuitButton" to="." method="_on_QuitButton_button_up"]
